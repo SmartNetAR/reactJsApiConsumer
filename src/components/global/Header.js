@@ -6,8 +6,19 @@ class Header extends Component {
   constructor() {
     super();
 
+    // this.handleChangeInput = this.handleChangeInput.bind(this);
     // this.handleClickLogo = this.handleClickLogo.bind(this);
-  }
+  };
+
+  handleChangeInput = event => {
+    // alert (event.target.value);
+    // this.props.filterByText(event);
+  };
+
+  handleClic = event => {
+    alert (event.target.value);
+    // this.props.filterByText(event);
+  };
 
   // handleClickLogo(e) {
   //   this.props.clickHideBar(e);
@@ -48,7 +59,7 @@ class Header extends Component {
             </ul>
             <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={() => alert(this.target.value)}>Search</button>
             </form>
           </div>
         </nav>
@@ -56,5 +67,5 @@ class Header extends Component {
     );
   }
 }
-
+// onChange={this.handleChangeInput}
 export default Header;
