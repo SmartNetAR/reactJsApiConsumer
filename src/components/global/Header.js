@@ -5,27 +5,22 @@ import React, { Component } from 'react';
 class Header extends Component {
   constructor() {
     super();
-
-    // this.handleChangeInput = this.handleChangeInput.bind(this);
-    // this.handleClickLogo = this.handleClickLogo.bind(this);
+    this.state = {value: ''};
+    
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  handleChangeInput = event => {
-    // alert (event.target.value);
-    // this.props.filterByText(event);
-  };
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
 
-  handleClic = event => {
-    alert (event.target.value);
-    // this.props.filterByText(event);
-  };
-
-  // handleClickLogo(e) {
-  //   this.props.clickHideBar(e);
-  // }
+  handleSubmit(event) {
+    this.props.filterByText(this.state.value)
+    event.preventDefault();
+  }
 
   render() {
-    // const {logoHideBar} = this.props;
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,9 +52,10 @@ class Header extends Component {
                 <a className="nav-link disabled" href="#">Disabled</a>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={() => alert(this.target.value)}>Search</button>
+            <form onSubmit={this.handleSubmit} className="form-inline my-2 my-lg-0">
+                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                value={this.state.value} onChange={this.handleChange}/>
+                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
         </nav>
@@ -67,5 +63,4 @@ class Header extends Component {
     );
   }
 }
-// onChange={this.handleChangeInput}
 export default Header;

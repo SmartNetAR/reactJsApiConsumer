@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/global/Header';
 import Content from './components/global/Content';
@@ -10,11 +9,12 @@ class App extends Component {
       
     // this.handleClickLogo = this.handleClickLogo.bind(this);
   }
-  state = { filterText:'' };
+  state = { filterText:'Batman' };
 
-  filterByText = event => {
+  filterByText = text => {
+    alert(text);
     this.setState({
-      filterText: event.target.value
+      filterText: text
     })
   }
 
