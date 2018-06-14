@@ -5,16 +5,18 @@ import MovieRow from './MovieRow'
 class MovieList extends React.Component {
 
   render() {
+    // console.log(this.props.listado);
+    // alert("console listado" + this.props.listado);
     return (
         <div className="container-fluid">
         <ul className="media-list">
           {
             this.props.listado.map((movie) => {
               return <MovieRow key={ movie.id }
-                                  name={ movie.name }
-                                  picture={ movie.pic }
-                                  title={ movie.title }
-                                  genere={ movie.genere } />
+                                  title={ movie.Title }
+                                  year={ movie.year }
+                                  runtime={ movie.runtime }
+                                  genre={ movie.genre } />
             })
           }
         </ul>

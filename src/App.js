@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/global/Header';
 import Content from './components/global/Content';
+import LeftBar from './components/global/LeftBar';
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class App extends Component {
   state = { filterText:'Batman' };
 
   filterByText = text => {
-    alert(text);
     this.setState({
       filterText: text
     })
@@ -22,7 +22,16 @@ class App extends Component {
     return (
       <div className="App">
         <Header filterByText={this.filterByText}/>
-        <Content authapikey = 'f4fea2a9' search={this.state.filterText}/>
+        <div className="container">
+            <div className="row">
+              <div className="col-12 col-sm=2 col-md-3">
+              <LeftBar/>
+              </div>
+              <div className="col-12 col-sm=10 col-md-19">
+                <Content authapikey = 'f4fea2a9' search={this.state.filterText}/>
+              </div>
+          </div>
+        </div>
       </div>
     );
   }
